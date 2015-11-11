@@ -71,7 +71,7 @@
         <div class="thefooter">
             <p>Copyright &copy;
                 <script>document.write(new Date().getFullYear());</script>
-                昆虫志 由 <a href="http://www.silushen.com">司禄神</a> 运营维护 <span id="style" style="">夜间</span></p>
+                昆虫志 由 <a href="http://www.silushen.com">司禄神</a> 运营维护 <span id="style" style="">夜间模式</span></p>
         </div>
     </div>
 </footer>
@@ -98,7 +98,7 @@
         $('.loading').hide();
         $("img.lazy").lazyload();
         $('#style').click(function () {
-            if($(this).text()==='白天'){
+            if($(this).text()==='日间模式'){
                 $("<link>")
                         .attr({
                             rel: "stylesheet",
@@ -106,7 +106,7 @@
                             href: "ui.css"
                         })
                         .appendTo("head");
-                $(this).text('夜间');
+                $(this).text('夜间模式');
             }else{
                 $("<link>")
                         .attr({
@@ -115,7 +115,7 @@
                             href: "night.css"
                         })
                         .appendTo("head");
-                $(this).text('白天');
+                $(this).text('日间模式');
             }
         });
     });
