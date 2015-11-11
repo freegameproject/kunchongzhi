@@ -1,0 +1,18 @@
+body {
+    background-image: url(images/bg.gif);
+    color: #fff;
+}
+.mainNav {
+    border-top: 1px solid #fff;
+    border-bottom: 2px solid #fff;
+}
+.caption {
+    border-top: 1px solid #bca474;
+}
+.footer {
+    border-top: 2px solid #ccc;
+    color: #ccc;
+}
+a:link,a:hover,a:visited{
+    color: #fff;
+}

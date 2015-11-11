@@ -4,6 +4,7 @@
 }
 body {
     background: #ffffff;
+
     color: #222;
     font: 12px/20px Georgia, "Times New Roman", Times, serif;
     padding-top: 25px;
@@ -36,7 +37,6 @@ body {
 }
 
 .caption {
-
     top: -15px;
     margin-bottom: 10px;
     padding-top: 20px;
@@ -47,11 +47,8 @@ body {
     color: #bca474;
     text-decoration: none;
     text-transform: Uppercase;
-
     font-weight: bold;
-
     border-top: 1px solid #bca474;
-    background: #fff;
 }
 
 .pic img {
@@ -79,4 +76,7 @@ body {
     body{
         width: 95%;
     }
+}
+a:link{
+    color: #000;
 }

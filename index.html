@@ -17,6 +17,7 @@
     <script src="js/jquery-2.1.4.min.js"></script>
     <script src="js/jquery.lazyload.min.js"></script>
     <script src="js/nativeShare.js"></script>
+    <script src="js/g.js"></script>
     <link rel="stylesheet" href="loading.css"/>
 </head>
 <body>
@@ -68,7 +69,9 @@
 <footer class="footer">
     <div class="clearfix">
         <div class="thefooter">
-            <p>昆虫志 由 <a href="http://www.silushen.com">司禄神</a> 运营维护</p>
+            <p>Copyright &copy;
+                <script>document.write(new Date().getFullYear());</script>
+                昆虫志 由 <a href="http://www.silushen.com">司禄神</a> 运营维护 <span id="style" style="">夜间</span></p>
         </div>
     </div>
 </footer>
@@ -94,5 +97,26 @@
     $(document).ready(function () {
         $('.loading').hide();
         $("img.lazy").lazyload();
+        $('#style').click(function () {
+            if($(this).text()==='白天'){
+                $("<link>")
+                        .attr({
+                            rel: "stylesheet",
+                            type: "text/css",
+                            href: "ui.css"
+                        })
+                        .appendTo("head");
+                $(this).text('夜间');
+            }else{
+                $("<link>")
+                        .attr({
+                            rel: "stylesheet",
+                            type: "text/css",
+                            href: "night.css"
+                        })
+                        .appendTo("head");
+                $(this).text('白天');
+            }
+        });
     });
 </script>
