@@ -1,0 +1,42 @@
+.loading {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+
+@-webkit-keyframes loading {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+.loading_border{
+    width: 50%;
+    height: 50%;
+    left: 50%;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+.loadIcon {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+
+    background: url(icon/loading.png);
+    background-size: 100%;
+    /*-webkit-transform: translateZ(0) ;*/
+    -webkit-animation : loading 5s linear infinite;
+}

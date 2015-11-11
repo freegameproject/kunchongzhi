@@ -14,7 +14,10 @@
     <title>昆虫志</title>
     <link rel="stylesheet" href="ui.css"/>
     <link rel="stylesheet" href="nativeShare.css"/>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/jquery.lazyload.min.js"></script>
     <script src="js/nativeShare.js"></script>
+    <link rel="stylesheet" href="loading.css"/>
 </head>
 <body>
 <header>
@@ -31,11 +34,15 @@
         </div>
         <article>
             <div class="pic">
-                <img src="images/0.png" alt="中野象蜡蝉"/>
+                <img class="lazy" data-original="images/0.png" alt="中野象蜡蝉"/>
             </div>
             <div class="info">
                 <p></p>
-                <p><div id="nativeShare"></div></p>
+
+                <p>
+
+                <div id="nativeShare"></div>
+                </p>
             </div>
         </article>
     </div>
@@ -46,16 +53,15 @@
         </div>
         <article>
             <div class="pic">
-                <img src="images/1.png" alt="蜂鸟蛾"/>
+                <img class="lazy" data-original="images/1.png" alt="蜂鸟蛾"/>
             </div>
             <div class="info">
                 <p></p>
+
                 <p></p>
             </div>
         </article>
     </div>
-
-
 
 
 </section>
@@ -66,16 +72,27 @@
         </div>
     </div>
 </footer>
+
+<div class="loading">
+    <div class="loading_border">
+        <div class="loadIcon">
+        </div>
+    </div>
+</div>
 </body>
 </html>
 <script>
     var config = {
-        url:'http://www.kunchongzhi.com',// 分享的网页链接
-        title:'昆虫志---中野象蜡蝉',// 标题
-        desc:'你知道中野象蜡蝉是什么吗？快来昆虫志看个究竟吧！',// 描述
-        img:'http://www.kunchongzhi.com/images/0.png',// 图片
-        img_title:'昆虫志',// 图片标题
-        from:'昆虫志' // 来源
+        url: 'http://www.kunchongzhi.com',// 分享的网页链接
+        title: '昆虫志---中野象蜡蝉',// 标题
+        desc: '你知道中野象蜡蝉是什么吗？快来昆虫志看个究竟吧！',// 描述
+        img: 'http://www.kunchongzhi.com/images/0.png',// 图片
+        img_title: '昆虫志',// 图片标题
+        from: '昆虫志' // 来源
     };
-    var share_obj = new nativeShare('nativeShare',config);
+    var share_obj = new nativeShare('nativeShare', config);
+    $(document).ready(function () {
+        $('.loading').hide();
+        $("img.lazy").lazyload();
+    });
 </script>
