@@ -98,23 +98,37 @@
         $('.loading').hide();
         $("img.lazy").lazyload();
         $('#style').click(function () {
+
+
+
             if($(this).text()==='日间模式'){
-                $("<link>")
-                        .attr({
-                            rel: "stylesheet",
-                            type: "text/css",
-                            href: "ui.css"
-                        })
-                        .appendTo("head");
+                if($("#style_css").length===0){
+                    $("<link>")
+                            .attr({
+                                rel: "stylesheet",
+                                type: "text/css",
+                                href: "ui.css",
+                                id:"style_css"
+                            })
+                            .appendTo("head");
+                }else{
+                    $("#style_css").attr("href","ui.css");
+                }
+
                 $(this).text('夜间模式');
             }else{
-                $("<link>")
-                        .attr({
-                            rel: "stylesheet",
-                            type: "text/css",
-                            href: "night.css"
-                        })
-                        .appendTo("head");
+                if($("#style_css").length===0) {
+                    $("<link>")
+                            .attr({
+                                rel: "stylesheet",
+                                type: "text/css",
+                                href: "night.css",
+                                id: "style_css"
+                            })
+                            .appendTo("head");
+                }else{
+                    $("#style_css").attr("href","night.css");
+                }
                 $(this).text('日间模式');
             }
         });
