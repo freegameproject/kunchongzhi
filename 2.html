@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<!--[if lt IE 7 ]>
+<html class="ie6" lang="zh-cmn-Hans"><![endif]-->
+<!--[if IE 7 ]>
+<html class="ie7" lang="zh-cmn-Hans"><![endif]-->
+<!--[if IE 8 ]>
+<html class="ie8" lang="zh-cmn-Hans"><![endif]-->
+<!--[if IE 9 ]>
+<html class="ie9" lang="zh-cmn-Hans"><![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=2.0,maximum-scale=1,user-scalable=no">
+    <title>昆虫志</title>
+    <link rel="stylesheet" href="ui.css"/>
+    <link rel="stylesheet" href="nativeShare.css"/>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/jquery.lazyload.min.js"></script>
+    <script src="js/nativeShare.js"></script>
+    <script src="js/g.js"></script>
+    <link rel="stylesheet" href="loading.css"/>
+</head>
+<body>
+<header>
+    <div class="title">昆虫志</div>
+    <div class="mainNav">
+        <a href="index.html">首页</a>
+    </div>
+</header>
+<section class="main">
+
+    <div class="designline">
+        <div class="caption">
+            中野象蜡蝉
+        </div>
+        <article>
+            <div class="pic">
+                <img class="lazy" data-original="images/0.png" alt="中野象蜡蝉"/>
+            </div>
+            <div class="info">
+                <p></p>
+
+                <p>
+
+                <div id="nativeShare"></div>
+                </p>
+            </div>
+        </article>
+    </div>
+
+    <div class="designline">
+        <div class="caption">
+            蜂鸟蛾
+        </div>
+        <article>
+            <div class="pic">
+                <img class="lazy" data-original="images/1.png" alt="蜂鸟蛾"/>
+            </div>
+            <div class="info">
+                <p><input type="button" value="获取用户信息" onclick="getUserInfo()" />
+                </p>
+
+                <p><input type="button" value="通知用户登录" onclick="window.WebInterface.WebCallUserLogin()" />
+                </p>
+            </div>
+        </article>
+    </div>
+
+
+</section>
+<footer class="footer">
+    <div class="clearfix">
+        <div class="thefooter">
+            <p>Copyright &copy;
+                <script>document.write(new Date().getFullYear());</script>
+                昆虫志 由 <a href="http://www.silushen.com">司禄神</a> 运营维护 <span id="style" style="">夜间模式</span></p>
+        </div>
+    </div>
+</footer>
+
+<div class="loading">
+    <div class="loading_border">
+        <div class="loadIcon">
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+
+    function getUserInfo(){
+        var str = window.WebInterface.GetUserInfo();
+        alert(str);
+    }
+
+
+    var config = {
+        url: 'http://www.kunchongzhi.com',// 分享的网页链接
+        title: '昆虫志---中野象蜡蝉',// 标题
+        desc: '你知道中野象蜡蝉是什么吗？快来昆虫志看个究竟吧！',// 描述
+        img: 'http://www.kunchongzhi.com/images/0.png',// 图片
+        img_title: '昆虫志',// 图片标题
+        from: '昆虫志' // 来源
+    };
+    var share_obj = new nativeShare('nativeShare', config);
+    $(document).ready(function () {
+        $('.loading').hide();
+        $("img.lazy").lazyload();
+        $('#style').click(function () {
+
+
+
+            if($(this).text()==='日间模式'){
+                if($("#style_css").length===0){
+                    $("<link>")
+                            .attr({
+                                rel: "stylesheet",
+                                type: "text/css",
+                                href: "ui.css",
+                                id:"style_css"
+                            })
+                            .appendTo("head");
+                }else{
+                    $("#style_css").attr("href","ui.css");
+                }
+
+                $(this).text('夜间模式');
+            }else{
+                if($("#style_css").length===0) {
+                    $("<link>")
+                            .attr({
+                                rel: "stylesheet",
+                                type: "text/css",
+                                href: "night.css",
+                                id: "style_css"
+                            })
+                            .appendTo("head");
+                }else{
+                    $("#style_css").attr("href","night.css");
+                }
+                $(this).text('日间模式');
+            }
+        });
+    });
+</script>
