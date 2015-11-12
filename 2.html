@@ -57,10 +57,10 @@
                 <img class="lazy" data-original="images/1.png" alt="蜂鸟蛾"/>
             </div>
             <div class="info">
-                <p><input type="button" value="获取用户信息" onclick="getUserInfo()" />
+                <button> onclick="getUserInfo()">获取用户信息</button>
                 </p>
 
-                <p><input type="button" value="通知用户登录" onclick="window.WebInterface.WebCallUserLogin()" />
+                <p><button onclick="window.WebInterface.WebCallUserLogin()" >用户登录</button>
                 </p>
             </div>
         </article>
@@ -91,7 +91,7 @@
     alert(window.WebInterface);
 
     function getUserInfo(){
-        alert(window.WebInterface.GetUserInfo);
+        window.WebInterface.GetUserInfo();
     }
 
 
